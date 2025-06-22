@@ -52,8 +52,6 @@
       z-index: 1000;
       transition: transform 0.3s ease-in-out;
       padding: 50px 30px;
-      box-sizing: border-box;
-      color: white;
     }
 
     .side-menu.active {
@@ -64,49 +62,13 @@
       display: block;
       color: white;
       text-decoration: none;
-      margin: 15px 0;
-      font-size: 1.5em;
-      letter-spacing: 0.2em;
-      transition: color 0.3s ease;
+      margin: 10px 0;  /* Espaciado reducido */
+      font-size: 1.2em;  /* Tamaño de letra más pequeño */
+      letter-spacing: 0.1em;  /* Espaciado entre letras */
     }
 
     .side-menu a:hover {
       color: #d4af37;
-    }
-
-    /* Estilo para la animación del menú */
-    .side-menu .menu-item {
-      display: block;
-      color: white;
-      font-size: 1.5em;
-      padding: 20px 0;
-      transition: color 0.3s ease;
-    }
-
-    .side-menu .menu-item:hover {
-      color: #d4af37;
-    }
-
-    /* Iconos de redes sociales */
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .social-icons i {
-      font-size: 1.5em;
-      color: #d4af37;
-      margin: 0 10px;
-      transition: background 0.3s;
-      padding: 10px;
-      border: 2px solid #d4af37;
-      border-radius: 50%;
-    }
-
-    .social-icons i:hover {
-      background-color: #d4af37;
-      color: black;
     }
 
   </style>
@@ -123,21 +85,28 @@
   <!-- Menú lateral -->
   <div class="side-menu" id="side-menu">
     <nav>
-      <a class="menu-item" href="#">ABOUT</a>
-      <a class="menu-item" href="#">SERVICES</a>
-      <a class="menu-item" href="#">CONTACT</a>
-      <a class="menu-item" href="#">SOCIALS</a>
+      <a href="#">ABOUT</a>
+      <a href="#">SERVICES</a>
+      <a href="#">CONTACT</a>
+      <a href="#">SOCIALS</a>
     </nav>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
   </div>
 
   <script>
     // Menú móvil
-    document.getElementById("menu-toggle").addEventListener("click", function() {
-      document.getElementById("side-menu").classList.toggle("active");
+    const menuToggle = document.getElementById("menu-toggle");
+    const sideMenu = document.getElementById("side-menu");
+
+    // Abre el menú
+    menuToggle.addEventListener("click", function() {
+      sideMenu.classList.toggle("active");
+    });
+
+    // Cierra el menú al hacer clic fuera de él
+    document.addEventListener("click", function(event) {
+      if (!sideMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+        sideMenu.classList.remove("active");
+      }
     });
   </script>
 
