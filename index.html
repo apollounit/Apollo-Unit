@@ -114,6 +114,11 @@
       margin-top: 40px;
     }
 
+    .scroll-trigger {
+      height: 100vh;
+      background: black;
+    }
+
     @media (max-width: 768px) {
       :root {
         --menu-width: 240px;
@@ -174,10 +179,11 @@
     <div class="bottom-text">APOLLOUNIT.COM</div>
   </div>
 
-  <!-- Contenido desplazable -->
-  <div class="main-wrapper" id="main-wrapper">
-    <!-- Aquí puedes poner tu contenido central si quieres -->
-  </div>
+  <!-- Contenido principal -->
+  <div class="main-wrapper" id="main-wrapper"></div>
+
+  <!-- Sección que fuerza el scroll hacia abajo -->
+  <div class="scroll-trigger"></div>
 
   <!-- Script -->
   <script>
@@ -189,6 +195,16 @@
       toggle.addEventListener("click", () => {
         sideMenu.classList.toggle("active");
         wrapper.classList.toggle("shifted");
+      });
+
+      // Detectar scroll y redirigir
+      let redirected = false;
+      window.addEventListener("scroll", () => {
+        const triggerPoint = document.querySelector(".scroll-trigger").offsetTop;
+        if (!redirected && window.scrollY >= triggerPoint - 100) {
+          redirected = true;
+          window.location.href = "servicios.html";
+        }
       });
     });
   </script>
