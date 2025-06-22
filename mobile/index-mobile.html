@@ -56,6 +56,7 @@
     body.menu-open {
       overflow: hidden;
     }
+
   </style>
 </head>
 <body>
@@ -104,6 +105,13 @@
       if (!menu.contains(event.target)) {
         menu.classList.remove("active");
         document.body.classList.remove("menu-open");
+      }
+    });
+
+    // Redirigir al hacer scroll
+    window.addEventListener("scroll", function() {
+      if (window.scrollY > 1000) {  // Ajusta el valor para cuando quieres redirigir
+        window.location.href = "service.html";  // Redirige a la página de servicios
       }
     });
   </script>
