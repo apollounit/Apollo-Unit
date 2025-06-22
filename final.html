@@ -21,17 +21,35 @@
 <body>
   Gracias por llegar al final
 
-  <script>
+ <script>
   let redirected = false;
 
-  // Detectamos cuando el scroll está exactamente arriba del todo
-  window.addEventListener("scroll", () => {
-    if (!redirected && window.scrollY === 0) {
-      redirected = true;
-      window.location.href = "servicios.html?final=true"; // le pasamos la marca
+  // Función para redirigir de vuelta a servicios
+  function goToServicios() {
+    if (redirected) return;
+    redirected = true;
+    window.location.href = 'servicios.html?final=true';
+  }
+
+  // Listener principal de scroll hacia arriba
+  function handleScroll(e) {
+    if (e.deltaY < 0) {
+      goToServicios();
     }
+  }
+
+  // Asegura que el body puede recibir el scroll sin hacer click
+  window.addEventListener('load', () => {
+    window.focus();
+    document.body.focus();
+
+    // Activamos el scroll inmediatamente
+    setTimeout(() => {
+      window.addEventListener('wheel', handleScroll, { passive: false });
+    }, 100);
   });
 </script>
+
 
 </body>
 </html>
