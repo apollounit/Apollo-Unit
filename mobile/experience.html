@@ -103,11 +103,11 @@
   <script>
     // Redirigir al hacer scroll hacia arriba (cerca del top)
     window.addEventListener("scroll", function() {
-      if (window.scrollY == 0) {  // Cuando el usuario vuelve al top de la página
-        window.location.href = "service.html";  // Redirige a la página de inicio
+      if (window.scrollY == 0) {  // Ajusta este valor si necesitas que se active antes
+        window.location.href = "service.html";  // Redirige al index móvil
       }
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        window.location.href = "contact.html";  // Redirige a la página de contacto cuando llegue al final
+        window.location.href = "contact.html";  // Redirige a la página de servicios
       }
     });
   </script>
