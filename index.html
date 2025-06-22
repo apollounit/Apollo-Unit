@@ -17,40 +17,19 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background-color: #000;
+      background: #000;
       overflow-x: hidden;
     }
 
     .main-wrapper {
-      position: relative;
-      width: 100%;
-      min-height: 100vh;
-      overflow: hidden;
+      background: url('fondo.png') no-repeat center center fixed;
+      background-size: cover;
       transition: transform 0.4s ease;
+      min-height: 100vh;
     }
 
     .main-wrapper.shifted {
       transform: translateX(var(--menu-width));
-    }
-
-    .background-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-
-    .logo-centered {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      width: 80%;
-      max-width: 600px;
     }
 
     .menu-toggle {
@@ -168,14 +147,6 @@
       .bottom-text {
         font-size: 0.7em;
       }
-
-      .logo-centered {
-        width: 90%;
-      }
-
-      .background-image {
-        object-position: 10% center; /* desplaza el fondo a la izquierda */
-      }
     }
   </style>
 </head>
@@ -203,10 +174,9 @@
     <div class="bottom-text">APOLLOUNIT.COM</div>
   </div>
 
-  <!-- Contenido con fondo e imagen centrada -->
+  <!-- Contenido desplazable -->
   <div class="main-wrapper" id="main-wrapper">
-    <img src="fondo1.png" alt="Fondo" class="background-image" />
-    <img src="letra.png" alt="Logo Apollo Unit" class="logo-centered" />
+    <!-- Aquí puedes poner tu contenido central si quieres -->
   </div>
 
   <!-- Script -->
