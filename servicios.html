@@ -64,58 +64,72 @@
 
 
   <script>
-    const slider = document.getElementById('scroll-horizontal');
-    const slides = document.querySelectorAll('.slide');
-    const urlParams = new URLSearchParams(window.location.search);
-    const redirectedFromFinal = urlParams.get('final') === 'true';
+  const scroller = document.getElementById('scroll-horizontal');
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirectedFromFinal = urlParams.get('final') === 'true';
 
-    let currentSlide = redirectedFromFinal ? slides.length - 1 : 0;
-    let isScrolling = false;
+  let redirected = false;
+  let allowScrollDetection = false;
 
-    function goToSlide(index, instant = false) {
-      if (index < 0) {
-        window.location.href = 'index.html';
-        return;
-      }
-      if (index >= slides.length) {
-        window.location.href = 'final.html';
-        return;
-      }
-
-      if (instant) {
-        slider.classList.add('no-transition');
-      }
-
-      slider.style.transform = `translateX(-${index * 100}vw)`;
-      currentSlide = index;
-
-      if (instant) {
-        // Reactivem la transició després d'un petit delay
-        setTimeout(() => {
-          slider.classList.remove('no-transition');
-        }, 50);
-      }
+  // Forzamos scroll horizontal con la rueda del ratón vertical (solo PC)
+  window.addEventListener('wheel', (e) => {
+    if (scroller && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault();
+      scroller.scrollLeft += e.deltaY;
     }
+  }, { passive: false });
 
-    window.addEventListener('load', () => {
-      goToSlide(currentSlide, redirectedFromFinal);
-    });
+  // Touch logic (para móviles)
+  let touchStartX = 0;
+  let touchStartY = 0;
 
-    window.addEventListener('wheel', (e) => {
-      if (isScrolling) return;
-      isScrolling = true;
+  scroller.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  });
 
-      if (e.deltaY > 0) {
-        goToSlide(currentSlide + 1);
-      } else if (e.deltaY < 0) {
-        goToSlide(currentSlide - 1);
-      }
+  scroller.addEventListener('touchmove', (e) => {
+    const deltaX = e.touches[0].clientX - touchStartX;
+    const deltaY = e.touches[0].clientY - touchStartY;
 
-      setTimeout(() => {
-        isScrolling = false;
-      }, 600);
-    }, { passive: false });
-  </script>
+    // Si se desliza más horizontalmente que verticalmente
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      e.preventDefault();
+      scroller.scrollLeft -= deltaX;
+      touchStartX = e.touches[0].clientX; // reset for siguiente movimiento
+    }
+  }, { passive: false });
+
+  // Posición inicial (si viene de final, va al final)
+  window.addEventListener('load', () => {
+    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+
+    if (redirectedFromFinal) {
+      scroller.scrollLeft = maxScroll - 1;
+      setTimeout(() => { allowScrollDetection = true; }, 500);
+    } else {
+      scroller.scrollLeft = 1;
+      allowScrollDetection = true;
+    }
+  });
+
+  // Detección de scroll hasta extremos
+  scroller.addEventListener('scroll', () => {
+    if (!allowScrollDetection || redirected) return;
+
+    const scrollLeft = scroller.scrollLeft;
+    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+
+    if (scrollLeft === 0) {
+      redirected = true;
+      window.location.href = 'index.html';
+    } else if (scrollLeft === maxScroll) {
+      redirected = true;
+      window.location.href = 'final.html';
+    }
+  });
+</script>
+
 
 </body>
 </html>
