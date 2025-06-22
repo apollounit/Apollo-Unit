@@ -24,31 +24,47 @@
  <script>
   let redirected = false;
 
-  // Función para redirigir de vuelta a servicios
   function goToServicios() {
     if (redirected) return;
     redirected = true;
     window.location.href = 'servicios.html?final=true';
   }
 
-  // Listener principal de scroll hacia arriba
-  function handleScroll(e) {
+  // --- PC: Scroll con la rueda ---
+  function handleWheel(e) {
     if (e.deltaY < 0) {
       goToServicios();
     }
   }
 
-  // Asegura que el body puede recibir el scroll sin hacer click
+  // --- Móvil: Swipe hacia abajo ---
+  let touchStartY = 0;
+
+  function handleTouchStart(e) {
+    touchStartY = e.touches[0].clientY;
+  }
+
+  function handleTouchMove(e) {
+    const touchEndY = e.touches[0].clientY;
+    if (touchEndY - touchStartY > 50) {  // swipe hacia abajo
+      goToServicios();
+    }
+  }
+
+  // --- Activar todo al cargar ---
   window.addEventListener('load', () => {
     window.focus();
     document.body.focus();
 
-    // Activamos el scroll inmediatamente
+    // Activamos ambos métodos
     setTimeout(() => {
-      window.addEventListener('wheel', handleScroll, { passive: false });
+      window.addEventListener('wheel', handleWheel, { passive: false });
+      window.addEventListener('touchstart', handleTouchStart, { passive: true });
+      window.addEventListener('touchmove', handleTouchMove, { passive: true });
     }, 100);
   });
 </script>
+
 
 
 </body>
