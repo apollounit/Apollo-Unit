@@ -121,14 +121,24 @@
 
     @media (max-width: 768px) {
       :root {
-        --menu-width: 240px;
+        --menu-width: 220px;
+      }
+
+      body {
+        font-size: 16px;
+        background-attachment: scroll; /* Arreglo para móviles */
+      }
+
+      .main-wrapper {
+        background-position: center top;
+        background-attachment: scroll; /* Evita bugs en móviles */
       }
 
       .menu-toggle {
-        top: 20px;
-        left: 20px;
-        width: 30px;
-        height: 22px;
+        top: 15px;
+        left: 15px;
+        width: 28px;
+        height: 20px;
       }
 
       .menu-toggle div {
@@ -136,12 +146,17 @@
       }
 
       .side-menu {
-        padding: 80px 20px 30px;
+        padding: 60px 15px 20px;
       }
 
       .side-menu nav a {
-        font-size: 0.9em;
-        margin-bottom: 15px;
+        font-size: 0.95em;
+        margin-bottom: 12px;
+      }
+
+      .social-icons {
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .social-icons i {
@@ -150,7 +165,8 @@
       }
 
       .bottom-text {
-        font-size: 0.7em;
+        font-size: 0.65em;
+        letter-spacing: 0.1em;
       }
     }
   </style>
