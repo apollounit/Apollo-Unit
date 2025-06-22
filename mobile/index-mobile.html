@@ -62,9 +62,9 @@
       display: block;
       color: white;
       text-decoration: none;
-      margin: 10px 0;  /* Espaciado reducido */
-      font-size: 1.2em;  /* Tamaño de letra más pequeño */
-      letter-spacing: 0.1em;  /* Espaciado entre letras */
+      margin: 15px 0;
+      font-size: 1.5em;
+      letter-spacing: 0.2em;
     }
 
     .side-menu a:hover {
@@ -94,19 +94,8 @@
 
   <script>
     // Menú móvil
-    const menuToggle = document.getElementById("menu-toggle");
-    const sideMenu = document.getElementById("side-menu");
-
-    // Abre el menú
-    menuToggle.addEventListener("click", function() {
-      sideMenu.classList.toggle("active");
-    });
-
-    // Cierra el menú al hacer clic fuera de él
-    document.addEventListener("click", function(event) {
-      if (!sideMenu.contains(event.target) && !menuToggle.contains(event.target)) {
-        sideMenu.classList.remove("active");
-      }
+    document.getElementById("menu-toggle").addEventListener("click", function() {
+      document.getElementById("side-menu").classList.toggle("active");
     });
   </script>
 
