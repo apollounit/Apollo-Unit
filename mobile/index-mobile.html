@@ -12,30 +12,7 @@
       font-family: 'Arial', sans-serif;
       background-color: #000;
       color: #d4af37;
-      height: 100vh;
       overflow-x: hidden;
-    }
-
-    /* Menú hamburguesa */
-    .menu-toggle {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 1001;
-      cursor: pointer;
-      width: 35px;
-      height: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .menu-toggle div {
-      background-color: #d4af37;
-      height: 4px;
-      width: 30px;
-      border-radius: 2px;
-      transition: 0.3s ease;
     }
 
     /* Menú lateral */
@@ -53,7 +30,7 @@
     }
 
     .side-menu.active {
-      transform: translateX(100%);
+      transform: translateX(100%); /* Desliza el menú a la vista */
     }
 
     .side-menu a {
@@ -68,6 +45,11 @@
 
     .side-menu a:hover {
       color: #d4af37;
+    }
+
+    /* Prevención de scroll en el body cuando el menú está abierto */
+    body.menu-open {
+      overflow: hidden;
     }
 
     /* Secciones */
@@ -87,24 +69,22 @@
       margin-bottom: 30px;
     }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    ul li {
-      font-size: 1.1em;
-    }
-
-    /* Fondo para la primera sección */
+    /* Sección "About Us" con fondo de imagen */
     .section-about {
-      background-image: url('fondo.png'); /* Fondo completo */
+      background-image: url('fondo.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
 
-    /* Estilo de contacto */
+    /* Sección "Services", "Experience", "Contact" con fondo negro */
+    .section-services, .section-experience, .section-contact {
+      background-color: #000;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Estilo del formulario de contacto */
     input, textarea {
       width: 80%;
       padding: 10px;
@@ -201,3 +181,4 @@
 
 </body>
 </html>
+
