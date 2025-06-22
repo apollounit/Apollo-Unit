@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apollo Unit</title>
+  <title>Services - Apollo Unit</title>
   <style>
     /* Estilo general */
     body {
@@ -16,65 +16,84 @@
       overflow-x: hidden;
     }
 
-    /* Sección común */
-    section {
+    /* Sección "Services" */
+    .section-services {
       padding: 80px 20px;
       text-align: center;
+      background-color: #111;
       color: #fff;
       box-sizing: border-box;
       transition: all 0.3s ease-in-out;
     }
 
     h2 {
-      font-size: 3em;
+      font-size: 3.5em;
       margin-bottom: 20px;
       font-weight: bold;
       letter-spacing: 2px;
+      color: #f1c40f;
     }
 
     p {
       font-size: 1.5em;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       color: #f1c40f;
     }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
+    /* Contenedor de servicios */
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      justify-items: center;
+      margin: 0 auto;
+      max-width: 1200px;
     }
 
-    ul li {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-      padding: 5px 0;
-      transition: transform 0.3s ease;
+    /* Tarjetas de servicios */
+    .service-card {
+      background-color: #222;
+      padding: 30px;
+      border-radius: 10px;
+      width: 250px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+      color: #fff;
+      text-align: center;
     }
 
-    ul li:hover {
-      transform: translateX(10px);
-      color: #d4af37;
+    /* Efecto hover en las tarjetas */
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
     }
 
-    /* Fondo de cada sección */
+    .service-icon {
+      font-size: 3em;
+      color: #f1c40f;
+    }
+
+    .service-title {
+      font-size: 2em;
+      margin-top: 15px;
+    }
+
+    .service-description {
+      font-size: 1em;
+      margin-top: 10px;
+    }
+
+    /* Fondo de la página */
     .section-services {
       background-image: url('background-service.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .section-experience {
-      background-image: url('background-experience.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .section-contact {
-      background-color: #000;
     }
 
     /* Estilo de botones */
@@ -87,36 +106,10 @@
       border-radius: 5px;
       cursor: pointer;
       text-decoration: none;
-      margin-top: 20px;
+      margin-top: 40px;
     }
 
     .button-back:hover {
-      background-color: #f1c40f;
-    }
-
-    /* Estilo de formulario */
-    input, textarea {
-      width: 80%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-      font-size: 1em;
-      background-color: #333;
-      color: #fff;
-    }
-
-    button {
-      background-color: #d4af37;
-      color: black;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1em;
-    }
-
-    button:hover {
       background-color: #f1c40f;
     }
 
@@ -127,57 +120,70 @@
   <!-- Sección Services -->
   <section class="section-services" id="services">
     <h2>Our Services</h2>
-    <p>We provide high-quality solutions in:</p>
-    <ul>
-      <li>Network Security</li>
-      <li>AI Integration</li>
-      <li>Telecom Infrastructure</li>
-      <li>Custom Hardware Solutions</li>
-    </ul>
-    <a href="#experience" class="button-back">Next: Experience</a>
+    <p>We provide high-quality solutions in the following areas:</p>
+
+    <!-- Contenedor de los servicios -->
+    <div class="services-container">
+      <!-- IA -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-robot"></i> <!-- Icono IA -->
+        </div>
+        <div class="service-title">AI Integration</div>
+        <div class="service-description">
+          We develop AI-driven solutions that enhance business efficiency and decision-making processes.
+        </div>
+      </div>
+
+      <!-- Ciberseguridad -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-shield-alt"></i> <!-- Icono Ciberseguridad -->
+        </div>
+        <div class="service-title">Cybersecurity</div>
+        <div class="service-description">
+          Protect your business with cutting-edge cybersecurity measures to ensure safe digital operations.
+        </div>
+      </div>
+
+      <!-- Digitalización -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-sync-alt"></i> <!-- Icono Digitalización -->
+        </div>
+        <div class="service-title">Digital Transformation</div>
+        <div class="service-description">
+          Embrace digitalization to optimize your processes and improve customer engagement.
+        </div>
+      </div>
+
+      <!-- Soporte -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-headset"></i> <!-- Icono Soporte -->
+        </div>
+        <div class="service-title">Support</div>
+        <div class="service-description">
+          Our dedicated support team ensures your operations run smoothly with real-time assistance.
+        </div>
+      </div>
+
+      <!-- I+D+i -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-flask"></i> <!-- Icono I+D+i -->
+        </div>
+        <div class="service-title">R&D</div>
+        <div class="service-description">
+          Invest in research and development to foster innovation and stay ahead in your industry.
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón para regresar al inicio -->
+    <a href="#home" class="button-back">Back to Home</a>
   </section>
 
-  <!-- Sección Experience -->
-  <section class="section-experience" id="experience">
-    <h2>Our Experience</h2>
-    <p>With over 10 years of experience, Apollo Unit has been delivering top-tier tech solutions:</p>
-    <ul>
-      <li>Helping businesses optimize their security infrastructure</li>
-      <li>Building reliable telecom networks and systems</li>
-      <li>Integrating AI solutions that drive business growth</li>
-      <li>Designing custom hardware tailored to client needs</li>
-    </ul>
-    <a href="#contact" class="button-back">Next: Contact</a>
-  </section>
-
-  <!-- Sección Contact -->
-  <section class="section-contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>If you have any questions or want to get in touch, fill out the form below:</p>
-    <form action="https://formspree.io/f/mjkraknq" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <script>
-    // Detectar el desplazamiento de scroll
-    window.addEventListener("scroll", function() {
-      const services = document.getElementById("services");
-      const experience = document.getElementById("experience");
-      const contact = document.getElementById("contact");
-
-      // Redirigir a la siguiente sección si se llega al final de una
-      if (window.innerHeight + window.scrollY >= services.offsetHeight) {
-        experience.scrollIntoView({ behavior: "smooth" });
-      }
-      if (window.innerHeight + window.scrollY >= experience.offsetHeight) {
-        contact.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  </script>
-
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Cargar los íconos de Font Awesome -->
 </body>
 </html>
