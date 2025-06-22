@@ -51,7 +51,7 @@
       background-color: black;
       z-index: 1000;
       transition: transform 0.3s ease-in-out;
-      padding: 30px 20px;  /* Reducido el padding */
+      padding: 50px 20px;  /* Reducido el padding para mayor espacio */
       box-sizing: border-box;
     }
 
@@ -73,6 +73,11 @@
       color: #d4af37;
     }
 
+    /* Asegurarse de que el menú ocupe el 100% de la pantalla */
+    .side-menu a {
+      font-size: 1.5em; /* Aumentar tamaño para hacerlo más legible */
+      padding: 10px;
+    }
   </style>
 </head>
 <body>
@@ -98,6 +103,13 @@
     // Menú móvil
     document.getElementById("menu-toggle").addEventListener("click", function() {
       document.getElementById("side-menu").classList.toggle("active");
+    });
+
+    // Cerrar el menú si se hace clic fuera de él
+    document.addEventListener("click", function(event) {
+      if (!document.getElementById("side-menu").contains(event.target) && !document.getElementById("menu-toggle").contains(event.target)) {
+        document.getElementById("side-menu").classList.remove("active");
+      }
     });
   </script>
 
