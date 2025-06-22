@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apollo Unit · Final</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      height: 200vh; /* para poder hacer scroll */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, serif;
+      color: #d4af37;
+      font-size: 2em;
+    }
+  </style>
+</head>
+<body>
+  Gracias por llegar al final
+
+  <script>
+  let redirected = false;
+
+  // Detectamos cuando el scroll está exactamente arriba del todo
+  window.addEventListener("scroll", () => {
+    if (!redirected && window.scrollY === 0) {
+      redirected = true;
+      window.location.href = "servicios.html?final=true"; // le pasamos la marca
+    }
+  });
+</script>
+
+</body>
+</html>
