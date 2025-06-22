@@ -56,6 +56,38 @@
     body.menu-open {
       overflow: hidden;
     }
+
+    /* Nueva sección que aparece cuando el usuario hace scroll */
+    .section-scroll {
+      display: none;  /* Inicialmente oculta */
+      background-color: black;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Aparece al hacer scroll */
+    .section-scroll.show {
+      display: block;
+    }
+
+    /* Sección contacto, servicios, etc. */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
   </style>
 </head>
 <body>
@@ -63,47 +95,65 @@
   <!-- Menú lateral -->
   <div class="side-menu" id="side-menu">
     <nav>
-      <a href="#">ABOUT</a>
-      <a href="#">SERVICES</a>
-      <a href="#">CONTACT</a>
-      <a href="#">SOCIALS</a>
+      <a href="#about">ABOUT US</a>
+      <a href="#services">SERVICES</a>
+      <a href="#contact">CONTACT</a>
+      <a href="#socials">SOCIALS</a>
     </nav>
   </div>
 
+  <!-- Sección About Us -->
+  <section id="about" class="section-about">
+    <h2>About Us</h2>
+    <p>Apollo Unit is a technology-driven company specializing in telecom, cybersecurity, AI, and hardware design. We offer innovative solutions for businesses in the digital era.</p>
+  </section>
+
+  <!-- Nueva Sección que aparece con el scroll -->
+  <div class="section-scroll" id="scroll-section">
+    <h2>Our Services</h2>
+    <p>We provide high-quality solutions in:</p>
+    <ul>
+      <li>Network Security</li>
+      <li>AI Integration</li>
+      <li>Telecom Infrastructure</li>
+      <li>Custom Hardware Solutions</li>
+    </ul>
+  </div>
+
+  <!-- Sección Contact -->
+  <section id="contact" class="section-contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out:</p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
   <script>
-    // Variables para detectar el deslizamiento
-    let startX = 0;
-    let currentX = 0;
-    let menu = document.getElementById("side-menu");
-
-    // Detectar cuando el usuario empieza a deslizar
-    document.addEventListener("touchstart", function(event) {
-      startX = event.touches[0].clientX; // Posición inicial del toque
+    // Menú móvil
+    document.getElementById("menu-toggle").addEventListener("click", function() {
+      document.getElementById("side-menu").classList.toggle("active");
     });
 
-    // Detectar el movimiento del deslizar
-    document.addEventListener("touchmove", function(event) {
-      currentX = event.touches[0].clientX; // Posición actual del toque
-      const diff = currentX - startX; // Diferencia del desplazamiento
-
-      // Abrir el menú si se hace un deslizamiento hacia la derecha
-      if (diff > 50) {
-        menu.classList.add("active");
-        document.body.classList.add("menu-open");
-      }
-
-      // Cerrar el menú si el deslizamiento es negativo o hacia la izquierda
-      if (diff < -50) {
-        menu.classList.remove("active");
-        document.body.classList.remove("menu-open");
-      }
-    });
-
-    // Cerrar el menú al hacer clic fuera de él
+    // Cerrar el menú si se hace clic fuera de él
     document.addEventListener("click", function(event) {
-      if (!menu.contains(event.target)) {
-        menu.classList.remove("active");
-        document.body.classList.remove("menu-open");
+      if (!document.getElementById("side-menu").contains(event.target) && !document.getElementById("menu-toggle").contains(event.target)) {
+        document.getElementById("side-menu").classList.remove("active");
+      }
+    });
+
+    // Mostrar la sección de scroll al hacer scroll hacia abajo
+    let scrollSection = document.getElementById("scroll-section");
+
+    window.addEventListener("scroll", function() {
+      // Si el usuario hace scroll hacia abajo 200px o más, mostrar la sección
+      if (window.scrollY > 200) {
+        scrollSection.classList.add("show");
+      } else {
+        scrollSection.classList.remove("show");
       }
     });
   </script>
