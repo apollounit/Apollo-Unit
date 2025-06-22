@@ -20,97 +20,68 @@
       overflow-x: hidden;
     }
 
-    /* Menú lateral */
-    .side-menu {
-      position: fixed;
-      top: 0;
-      left: -100%; /* Inicialmente oculto */
-      width: 70%;
-      height: 100%;
-      background-color: black;
-      z-index: 1000;
-      transition: transform 0.3s ease-in-out;
-      padding: 50px 20px;
-      box-sizing: border-box;
-    }
-
-    .side-menu.active {
-      transform: translateX(100%); /* Desliza el menú a la vista */
-    }
-
-    .side-menu a {
-      display: block;
+    /* Sección general */
+    section {
+      padding: 60px 20px;
+      text-align: center;
       color: white;
-      text-decoration: none;
-      margin: 15px 0;
-      font-size: 1.5em;
-      letter-spacing: 0.1em;
-      transition: color 0.3s ease;
     }
 
-    .side-menu a:hover {
-      color: #d4af37;
+    h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
     }
 
-    /* Prevención de scroll en el body cuando el menú está abierto */
-    body.menu-open {
-      overflow: hidden;
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
     }
 
   </style>
 </head>
 <body>
 
-  <!-- Menú lateral -->
-  <div class="side-menu" id="side-menu">
-    <nav>
-      <a href="#">ABOUT</a>
-      <a href="#">SERVICES</a>
-      <a href="#">CONTACT</a>
-      <a href="#">SOCIALS</a>
-    </nav>
-  </div>
+  <!-- Sección About Us -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Apollo Unit is a technology-driven company specializing in telecom, cybersecurity, AI, and hardware design. We offer innovative solutions for businesses in the digital era.</p>
+  </section>
+
+  <!-- Sección Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>We provide high-quality solutions in:</p>
+    <ul>
+      <li>Network Security</li>
+      <li>AI Integration</li>
+      <li>Telecom Infrastructure</li>
+      <li>Custom Hardware Solutions</li>
+    </ul>
+  </section>
+
+  <!-- Sección Experience -->
+  <section id="experience">
+    <h2>Our Experience</h2>
+    <p>We have over 10 years of experience in the tech industry, helping businesses enhance their security, optimize their infrastructure, and integrate cutting-edge AI solutions.</p>
+  </section>
+
+  <!-- Sección Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out:</p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
   <script>
-    // Variables para detectar el deslizamiento
-    let startX = 0;
-    let currentX = 0;
-    let menu = document.getElementById("side-menu");
-
-    // Detectar cuando el usuario empieza a deslizar
-    document.addEventListener("touchstart", function(event) {
-      startX = event.touches[0].clientX; // Posición inicial del toque
-    });
-
-    // Detectar el movimiento del deslizar
-    document.addEventListener("touchmove", function(event) {
-      currentX = event.touches[0].clientX; // Posición actual del toque
-      const diff = currentX - startX; // Diferencia del desplazamiento
-
-      // Abrir el menú si se hace un deslizamiento hacia la derecha
-      if (diff > 50) {
-        menu.classList.add("active");
-        document.body.classList.add("menu-open");
-      }
-
-      // Cerrar el menú si el deslizamiento es negativo o hacia la izquierda
-      if (diff < -50) {
-        menu.classList.remove("active");
-        document.body.classList.remove("menu-open");
-      }
-    });
-
-    // Cerrar el menú al hacer clic fuera de él
-    document.addEventListener("click", function(event) {
-      if (!menu.contains(event.target)) {
-        menu.classList.remove("active");
-        document.body.classList.remove("menu-open");
-      }
-    });
-
-    // Redirigir al hacer scroll
+    // Redirigir al hacer scroll hasta el final de la página
     window.addEventListener("scroll", function() {
-      if (window.scrollY > 1000) {  // Ajusta el valor para cuando quieres redirigir
+      // Detecta si el usuario ha llegado al final de la página
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         window.location.href = "service.html";  // Redirige a la página de servicios
       }
     });
