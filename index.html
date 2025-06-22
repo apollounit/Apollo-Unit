@@ -6,6 +6,10 @@
   <title>Apollo Unit</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    :root {
+      --menu-width: 300px;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -25,10 +29,9 @@
     }
 
     .main-wrapper.shifted {
-      transform: translateX(300px);
+      transform: translateX(var(--menu-width));
     }
 
-    /* Menú hamburguesa */
     .menu-toggle {
       position: fixed;
       top: 30px;
@@ -49,12 +52,11 @@
       transition: 0.3s ease;
     }
 
-    /* Menú lateral */
     .side-menu {
       position: fixed;
       top: 0;
       left: 0;
-      width: 300px;
+      width: var(--menu-width);
       height: 100vh;
       background-color: black;
       display: flex;
@@ -62,7 +64,7 @@
       justify-content: space-between;
       padding: 100px 30px 40px;
       z-index: 2000;
-      transform: translateX(-300px);
+      transform: translateX(calc(-1 * var(--menu-width)));
       transition: transform 0.4s ease;
     }
 
@@ -109,20 +111,41 @@
       font-size: 0.8em;
       color: #d4af37;
       letter-spacing: 0.2em;
+      margin-top: 40px;
     }
 
     @media (max-width: 768px) {
+      :root {
+        --menu-width: 240px;
+      }
+
+      .menu-toggle {
+        top: 20px;
+        left: 20px;
+        width: 30px;
+        height: 22px;
+      }
+
+      .menu-toggle div {
+        height: 3px;
+      }
+
       .side-menu {
-        width: 260px;
-        transform: translateX(-260px);
+        padding: 80px 20px 30px;
       }
 
-      .side-menu.active {
-        transform: translateX(0);
+      .side-menu nav a {
+        font-size: 0.9em;
+        margin-bottom: 15px;
       }
 
-      .main-wrapper.shifted {
-        transform: translateX(260px);
+      .social-icons i {
+        font-size: 1em;
+        padding: 6px;
+      }
+
+      .bottom-text {
+        font-size: 0.7em;
       }
     }
   </style>
@@ -151,11 +174,12 @@
     <div class="bottom-text">APOLLOUNIT.COM</div>
   </div>
 
-  <!-- Contenedor desplazable -->
+  <!-- Contenido desplazable -->
   <div class="main-wrapper" id="main-wrapper">
     <!-- Aquí puedes poner tu contenido central si quieres -->
   </div>
 
+  <!-- Script -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const toggle = document.getElementById("menu-toggle");
