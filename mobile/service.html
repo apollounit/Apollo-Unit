@@ -18,24 +18,69 @@
 
     /* Sección "Services" */
     .section-services {
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
-      background-color: #000;
+      background-color: #111;
+      color: #fff;
+      box-sizing: border-box;
+      transition: all 0.3s ease-in-out;
     }
 
     h2 {
-      font-size: 2.5em;
+      font-size: 3em;
       margin-bottom: 20px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-bottom: 40px;
+      color: #f1c40f;
     }
 
     ul {
       list-style-type: none;
       padding: 0;
+      margin: 0;
     }
 
     ul li {
       font-size: 1.5em;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      padding: 5px 0;
+      transition: transform 0.3s ease;
+    }
+
+    ul li:hover {
+      transform: translateX(10px);
+      color: #d4af37;
+    }
+
+    /* Fondo de la página */
+    .section-services {
+      background-image: url('background-service.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+    }
+
+    /* Estilo de botones */
+    .button-back {
+      background-color: #d4af37;
+      color: #000;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+
+    .button-back:hover {
+      background-color: #f1c40f;
     }
 
   </style>
@@ -52,7 +97,17 @@
       <li>Telecom Infrastructure</li>
       <li>Custom Hardware Solutions</li>
     </ul>
+
   </section>
+
+  <script>
+    // Redirigir al hacer scroll hacia arriba (cerca del top)
+    window.addEventListener("scroll", function() {
+      if (window.scrollY <= 50) {  // Ajusta este valor si necesitas que se active antes
+        window.location.href = "index-mobile.html";  // Redirige al index móvil
+      }
+    });
+  </script>
 
 </body>
 </html>
