@@ -64,7 +64,6 @@
       background-size: cover;
       background-position: center;
       background-color: rgba(0, 0, 0, 0.7);
-      background-attachment: scroll; /* Elimina el efecto fixed para móviles */
     }
 
     .section-experience {
@@ -72,7 +71,6 @@
       background-size: cover;
       background-position: center;
       background-color: rgba(0, 0, 0, 0.7);
-      background-attachment: scroll; /* Elimina el efecto fixed para móviles */
     }
 
     .section-contact {
@@ -173,7 +171,7 @@
       </div>
     </div>
 
-    <a href="#experience" class="button-back">Next: Experience</a>
+    <a href="#experience" class="button-back" id="next-services">Next: Experience</a>
   </section>
 
   <!-- Sección Experience -->
@@ -186,7 +184,7 @@
       <li>Integrating AI solutions that drive business growth</li>
       <li>Designing custom hardware tailored to client needs</li>
     </ul>
-    <a href="#contact" class="button-back">Next: Contact</a>
+    <a href="#contact" class="button-back" id="next-experience">Next: Contact</a>
   </section>
 
   <!-- Sección Contact -->
@@ -202,19 +200,29 @@
   </section>
 
   <script>
-    // Detectar el desplazamiento de scroll
-    window.addEventListener("scroll", function() {
-      const services = document.getElementById("services");
-      const experience = document.getElementById("experience");
-      const contact = document.getElementById("contact");
+    let sectionIds = ['services', 'experience', 'contact'];
+    let currentSectionIndex = 0;
 
-      // Redirigir a la siguiente sección si se llega al final de una
-      if (window.innerHeight + window.scrollY >= services.offsetHeight) {
-        experience.scrollIntoView({ behavior: "smooth" });
+    // Función de desplazamiento controlado
+    window.addEventListener("scroll", function() {
+      let currentSection = document.getElementById(sectionIds[currentSectionIndex]);
+      let nextSection = document.getElementById(sectionIds[currentSectionIndex + 1]);
+
+      // Verificar si el usuario ha llegado al final de la sección actual
+      if (currentSection && window.scrollY + window.innerHeight >= currentSection.offsetHeight) {
+        // Mostrar el botón de la siguiente sección
+        if (nextSection) {
+          document.getElementById('next-' + sectionIds[currentSectionIndex]).style.display = "block";
+        }
       }
-      if (window.innerHeight + window.scrollY >= experience.offsetHeight) {
-        contact.scrollIntoView({ behavior: "smooth" });
-      }
+    });
+
+    // Navegación entre secciones cuando el usuario hace clic en "Next"
+    document.getElementById('next-services').addEventListener('click', function() {
+      document.getElementById('experience').scrollIntoView({ behavior: "smooth" });
+    });
+    document.getElementById('next-experience').addEventListener('click', function() {
+      document.getElementById('contact').scrollIntoView({ behavior: "smooth" });
     });
   </script>
 
