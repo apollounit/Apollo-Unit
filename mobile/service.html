@@ -106,6 +106,9 @@
       if (window.scrollY == 0) {  // Ajusta este valor si necesitas que se active antes
         window.location.href = "index-mobile.html";  // Redirige al index móvil
       }
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        window.location.href = "experience.html";  // Redirige a la página de servicios
+      }
     });
   </script>
 
