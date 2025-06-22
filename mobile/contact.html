@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Apollo Unit</title>
+  <style>
+    /* Estilo general */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #d4af37;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Sección "Contact" */
+    .section-contact {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #000;
+    }
+
+    h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
+
+    /* Estilos del formulario */
+    input, textarea {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      background-color: #333;
+      color: #fff;
+    }
+
+    button {
+      background-color: #d4af37;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    button:hover {
+      background-color: #f1c40f;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sección Contact -->
+  <section class="section-contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or want to get in touch, fill out the form below:</p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+</body>
+</html>
