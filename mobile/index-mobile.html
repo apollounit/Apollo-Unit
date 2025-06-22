@@ -13,6 +13,10 @@
       background-color: #000;
       color: #d4af37;
       height: 100vh;
+      background-image: url('fondo.png'); /* Fondo completo */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       overflow-x: hidden;
     }
 
@@ -48,111 +52,58 @@
       color: #d4af37;
     }
 
-    /* Secciones */
-    section {
-      padding: 60px 20px;
-      text-align: center;
-      color: white;
+    /* Prevención de scroll en el body cuando el menú está abierto */
+    body.menu-open {
+      overflow: hidden;
     }
-
-    h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-    }
-
-    /* Sección "About Us" con fondo de imagen */
-    .section-about {
-      background-image: url('fondo.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-
   </style>
 </head>
 <body>
 
-  <!-- Menú hamburguesa -->
-  <div class="menu-toggle" id="menu-toggle">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
   <!-- Menú lateral -->
   <div class="side-menu" id="side-menu">
     <nav>
-      <a href="#about">ABOUT US</a>
-      <a href="#services">SERVICES</a>
-      <a href="#experience">EXPERIENCE</a>
-      <a href="#contact">CONTACT</a>
+      <a href="#">ABOUT</a>
+      <a href="#">SERVICES</a>
+      <a href="#">CONTACT</a>
+      <a href="#">SOCIALS</a>
     </nav>
   </div>
 
-  <!-- Sección About Us -->
-  <section id="about" class="section-about">
-    <h2>About Us</h2>
-    <p>Apollo Unit is a technology-driven company specializing in telecom, cybersecurity, AI, and hardware design. We offer innovative solutions for businesses in the digital era.</p>
-  </section>
-
-  <!-- Sección Services -->
-  <section id="services" class="section-services">
-    <h2>Our Services</h2>
-    <p>We provide high-quality solutions in:</p>
-    <ul>
-      <li>Network Security</li>
-      <li>AI Integration</li>
-      <li>Telecom Infrastructure</li>
-      <li>Custom Hardware Solutions</li>
-    </ul>
-  </section>
-
-  <!-- Sección Experience -->
-  <section id="experience" class="section-experience">
-    <h2>Our Experience</h2>
-    <p>We have over 10 years of experience in the tech industry, helping businesses enhance their security, optimize their infrastructure, and integrate cutting-edge AI solutions.</p>
-  </section>
-
-  <!-- Sección Contact -->
-  <section id="contact" class="section-contact">
-    <h2>Contact Us</h2>
-    <p>If you have any questions, feel free to reach out:</p>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" rows="4" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
   <script>
-    // Menú móvil
-    document.getElementById("menu-toggle").addEventListener("click", function() {
-      document.getElementById("side-menu").classList.toggle("active");
+    // Variables para detectar el deslizamiento
+    let startX = 0;
+    let currentX = 0;
+    let menu = document.getElementById("side-menu");
+
+    // Detectar cuando el usuario empieza a deslizar
+    document.addEventListener("touchstart", function(event) {
+      startX = event.touches[0].clientX; // Posición inicial del toque
     });
 
-    // Cerrar el menú si se hace clic fuera de él
+    // Detectar el movimiento del deslizar
+    document.addEventListener("touchmove", function(event) {
+      currentX = event.touches[0].clientX; // Posición actual del toque
+      const diff = currentX - startX; // Diferencia del desplazamiento
+
+      // Abrir el menú si se hace un deslizamiento hacia la derecha
+      if (diff > 50) {
+        menu.classList.add("active");
+        document.body.classList.add("menu-open");
+      }
+
+      // Cerrar el menú si el deslizamiento es negativo o hacia la izquierda
+      if (diff < -50) {
+        menu.classList.remove("active");
+        document.body.classList.remove("menu-open");
+      }
+    });
+
+    // Cerrar el menú al hacer clic fuera de él
     document.addEventListener("click", function(event) {
-      if (!document.getElementById("side-menu").contains(event.target) && !document.getElementById("menu-toggle").contains(event.target)) {
-        document.getElementById("side-menu").classList.remove("active");
-      }
-    });
-
-    // Redirigir al hacer scroll
-    window.addEventListener("scroll", function() {
-      if (window.scrollY > 1000) {  // Ajusta el valor para cuando quieres redirigir
-        window.location.href = "services.html";  // Redirige a la página de servicios
-      }
-      if (window.scrollY > 2000) {  // Redirige a la página de experiencia
-        window.location.href = "experience.html";
-      }
-      if (window.scrollY > 3000) {  // Redirige a la página de contacto
-        window.location.href = "contact.html";
+      if (!menu.contains(event.target)) {
+        menu.classList.remove("active");
+        document.body.classList.remove("menu-open");
       }
     });
   </script>
