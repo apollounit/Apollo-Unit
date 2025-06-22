@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apollo Unit</title>
+  <script>
+    // Detectar el dispositivo
+    window.onload = function () {
+      var width = window.innerWidth;
+
+      // Redirigir según el tamaño de la pantalla (en píxeles)
+      if (width <= 768) {
+        // Dispositivo móvil
+        window.location.href = "index-mobile.html"; // Redirigir a la versión móvil
+      } else if (width > 768 && width <= 1024) {
+        // Tablet
+        window.location.href = "index-tablet.html"; // Redirigir a la versión tablet
+      } else {
+        // PC
+        window.location.href = "index-pc.html"; // Redirigir a la versión de escritorio
+      }
+    };
+  </script>
+</head>
+<body>
+  <!-- Contenido predeterminado, aunque nunca será mostrado ya que el script redirige inmediatamente -->
+</body>
+</html>
