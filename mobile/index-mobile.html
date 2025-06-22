@@ -13,11 +13,29 @@
       background-color: #000;
       color: #d4af37;
       height: 100vh;
-      background-image: url('fondo.png'); /* Fondo completo */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
       overflow-x: hidden;
+    }
+
+    /* Menú hamburguesa */
+    .menu-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1001;
+      cursor: pointer;
+      width: 35px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-toggle div {
+      background-color: #d4af37;
+      height: 4px;
+      width: 30px;
+      border-radius: 2px;
+      transition: 0.3s ease;
     }
 
     /* Menú lateral */
@@ -52,29 +70,7 @@
       color: #d4af37;
     }
 
-    /* Menú hamburguesa */
-    .menu-toggle {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 1001;
-      cursor: pointer;
-      width: 35px;
-      height: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .menu-toggle div {
-      background-color: #d4af37;
-      height: 4px;
-      width: 30px;
-      border-radius: 2px;
-      transition: 0.3s ease;
-    }
-
-    /* Sección general */
+    /* Secciones */
     section {
       padding: 60px 20px;
       text-align: center;
@@ -91,7 +87,24 @@
       margin-bottom: 30px;
     }
 
-    /* Formulario de contacto */
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      font-size: 1.1em;
+    }
+
+    /* Fondo para la primera sección */
+    .section-about {
+      background-image: url('fondo.png'); /* Fondo completo */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* Estilo de contacto */
     input, textarea {
       width: 80%;
       padding: 10px;
@@ -137,13 +150,13 @@
   </div>
 
   <!-- Sección About Us -->
-  <section id="about">
+  <section id="about" class="section-about">
     <h2>About Us</h2>
     <p>Apollo Unit is a technology-driven company specializing in telecom, cybersecurity, AI, and hardware design. We offer innovative solutions for businesses in the digital era.</p>
   </section>
 
   <!-- Sección Services -->
-  <section id="services">
+  <section id="services" class="section-services">
     <h2>Our Services</h2>
     <p>We provide high-quality solutions in:</p>
     <ul>
@@ -155,13 +168,13 @@
   </section>
 
   <!-- Sección Experience -->
-  <section id="experience">
+  <section id="experience" class="section-experience">
     <h2>Our Experience</h2>
     <p>We have over 10 years of experience in the tech industry, helping businesses enhance their security, optimize their infrastructure, and integrate cutting-edge AI solutions.</p>
   </section>
 
   <!-- Sección Contact -->
-  <section id="contact">
+  <section id="contact" class="section-contact">
     <h2>Contact Us</h2>
     <p>If you have any questions, feel free to reach out:</p>
     <form>
