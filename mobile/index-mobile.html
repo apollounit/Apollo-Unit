@@ -8,61 +8,50 @@
     /* Estilo general */
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Arial', sans-serif;
       background-color: #000;
       color: #d4af37;
-      text-align: center;
-      padding: 20px;
-      background-image: url('pc/fondo.png'); /* Mismo fondo que en el PC */
-      background-size: cover; /* Asegura que el fondo cubra toda la pantalla */
-      background-position: center center; /* Centra el fondo */
-      background-attachment: scroll; /* Evita problemas de parallax en móviles */
+      height: 100vh;
+      background-image: url('fondo1.png'); /* Fondo completo */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
-    h1 {
-      font-size: 2em;
-      margin-top: 20px;
-    }
-
-    p {
-      font-size: 1.2em;
-    }
-
+    /* Menú hamburguesa */
     .menu-toggle {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1001;
       cursor: pointer;
-      margin-top: 20px;
-      width: 40px;
-      height: 30px;
+      width: 35px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .menu-toggle div {
       background-color: #d4af37;
-      height: 5px;
+      height: 4px;
       width: 30px;
-      margin: 5px;
-      transition: 0.3s;
+      border-radius: 2px;
+      transition: 0.3s ease;
     }
 
-    /* Contenido principal */
-    .content {
-      margin-top: 50px;
-    }
-
-    /* Estilo de menú móvil */
+    /* Menú lateral */
     .side-menu {
       position: fixed;
       top: 0;
       left: -100%;
-      background-color: black;
-      color: white;
       width: 70%;
       height: 100%;
+      background-color: black;
       z-index: 1000;
       transition: transform 0.3s ease-in-out;
-      padding: 20px;
+      padding: 50px 30px;
     }
 
     .side-menu.active {
@@ -75,32 +64,11 @@
       text-decoration: none;
       margin: 15px 0;
       font-size: 1.5em;
+      letter-spacing: 0.2em;
     }
 
     .side-menu a:hover {
       color: #d4af37;
-    }
-
-    /* Iconos de redes sociales */
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .social-icons i {
-      font-size: 1.5em;
-      color: #d4af37;
-      margin: 0 10px;
-      transition: background 0.3s;
-      padding: 10px;
-      border: 2px solid #d4af37;
-      border-radius: 50%;
-    }
-
-    .social-icons i:hover {
-      background-color: #d4af37;
-      color: black;
     }
 
   </style>
@@ -122,16 +90,6 @@
       <a href="#">CONTACT</a>
       <a href="#">SOCIALS</a>
     </nav>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </div>
-
-  <!-- Contenido principal -->
-  <div class="content">
-    <h1>Bienvenido a Apollo Unit</h1>
-    <p>Esta es la versión móvil de nuestra página. Explora nuestros servicios y descubre más.</p>
   </div>
 
   <script>
