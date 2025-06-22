@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apollo Unit - Móvil</title>
   <style>
+    /* Estilo general */
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
       background-color: #000;
       color: #d4af37;
       text-align: center;
@@ -22,17 +24,118 @@
       font-size: 1.2em;
     }
 
+    .menu-toggle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 40px;
+      height: 30px;
+    }
+
+    .menu-toggle div {
+      background-color: #d4af37;
+      height: 5px;
+      width: 30px;
+      margin: 5px;
+      transition: 0.3s;
+    }
+
+    /* Contenido principal */
     .content {
       margin-top: 50px;
     }
+
+    /* Estilo de menú móvil */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      background-color: black;
+      color: white;
+      width: 70%;
+      height: 100%;
+      z-index: 1000;
+      transition: transform 0.3s ease-in-out;
+      padding: 20px;
+    }
+
+    .side-menu.active {
+      transform: translateX(100%);
+    }
+
+    .side-menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      font-size: 1.5em;
+    }
+
+    .side-menu a:hover {
+      color: #d4af37;
+    }
+
+    /* Iconos de redes sociales */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-icons i {
+      font-size: 1.5em;
+      color: #d4af37;
+      margin: 0 10px;
+      transition: background 0.3s;
+      padding: 10px;
+      border: 2px solid #d4af37;
+      border-radius: 50%;
+    }
+
+    .social-icons i:hover {
+      background-color: #d4af37;
+      color: black;
+    }
+
   </style>
 </head>
 <body>
 
-  <div class="content">
-    <h1>¡Bienvenido a Apollo Unit!</h1>
-    <p>Esta es la versión móvil de la página.</p>
+  <!-- Menú hamburguesa -->
+  <div class="menu-toggle" id="menu-toggle">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
+
+  <!-- Menú lateral -->
+  <div class="side-menu" id="side-menu">
+    <nav>
+      <a href="#">ABOUT</a>
+      <a href="#">SERVICES</a>
+      <a href="#">CONTACT</a>
+      <a href="#">SOCIALS</a>
+    </nav>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <h1>Bienvenido a Apollo Unit</h1>
+    <p>Esta es la versión móvil de nuestra página. Explora nuestros servicios y descubre más.</p>
+  </div>
+
+  <script>
+    // Menú móvil
+    document.getElementById("menu-toggle").addEventListener("click", function() {
+      document.getElementById("side-menu").classList.toggle("active");
+    });
+  </script>
 
 </body>
 </html>
