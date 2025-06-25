@@ -3,214 +3,198 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Apollo Unit</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>Apollo Unit · Divine Tech</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
+    :root {
+      --gold: #d4af37;
+      --black: #0a0a0a;
+      --font-serif: 'Georgia', serif;
+      --font-sans: 'Arial', sans-serif;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background: #101010;
+      background-color: var(--black);
       color: #fff;
-      font-family: 'Georgia', serif;
-      overflow-x: hidden;
+      font-family: var(--font-serif);
+      scroll-behavior: smooth;
     }
-    main {
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
     }
-    .godly-symbol {
-      width: 98px;
-      height: 98px;
+
+    .bust {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
       border-radius: 50%;
-      background: radial-gradient(circle at 42% 33%, #d4af37 70%, #18181b 100%);
+      background: radial-gradient(circle at 45% 35%, var(--gold) 60%, var(--black) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 40px auto 32px auto;
-      box-shadow: 0 0 80px 0 #d4af372c;
+      box-shadow: 0 0 80px #d4af3733;
     }
-    .godly-symbol img {
-      width: 84px; height: 84px; border-radius: 50%; object-fit: cover; opacity: 0.86;
-      filter: brightness(0.93) sepia(0.6) hue-rotate(-23deg) saturate(2.3);
+
+    .bust img {
+      width: 84px;
+      height: 84px;
+      object-fit: cover;
+      border-radius: 50%;
+      opacity: 0.9;
+      filter: brightness(0.9) sepia(0.6) hue-rotate(-15deg);
     }
+
     h1 {
-      font-size: 2.9em;
-      letter-spacing: 0.13em;
-      font-family: 'Georgia', serif;
-      font-weight: 900;
-      color: #fff;
+      font-size: 3em;
+      letter-spacing: 0.15em;
       margin: 0;
-      text-align: center;
-      text-shadow: 0 4px 24px #000b;
+      text-shadow: 0 4px 24px #000;
     }
-    .godly-phrase {
-      color: #d4af37;
-      font-family: 'Georgia', serif;
-      font-size: 1.11em;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      margin: 13px 0 33px 0;
-      text-align: center;
+
+    .subtitle {
+      font-size: 1.1em;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-top: 10px;
     }
-    .main-card {
-      background: rgba(22,18,9,0.77);
-      border: 1.7px solid #d4af37;
-      border-radius: 18px;
-      padding: 34px 22px 28px 22px;
-      max-width: 420px;
-      margin: 0 auto 42px auto;
-      box-shadow: 0 6px 36px #d4af3720;
+
+    nav {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 40px 0;
     }
-    .main-card h2 {
-      font-size: 1.35em;
-      font-family: 'Georgia', serif;
-      letter-spacing: 0.06em;
-      color: #fff;
-      margin: 0 0 22px 0;
-      font-weight: 800;
-      text-align: center;
-    }
-    .services-min {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-      width: 100%;
-      margin: 0 0 20px 0;
-    }
-    .service-min {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      color: #fff;
-      font-size: 1.09em;
-      padding: 0;
-      letter-spacing: 0.01em;
-    }
-    .service-min i {
-      color: #d4af37;
-      font-size: 1.5em;
-      min-width: 1.5em;
-    }
-    .aboutus-min {
-      margin-top: 19px;
-      color: #e9e1ca;
-      font-size: 1em;
-      line-height: 1.65;
-      letter-spacing: 0.01em;
-      text-align: center;
-    }
-    .minimal-btn {
-      margin: 28px auto 0 auto;
-      background: none;
-      border: 1.4px solid #d4af37;
-      color: #d4af37;
-      padding: 12px 36px;
-      border-radius: 36px;
-      font-family: inherit;
-      font-size: 1em;
-      letter-spacing: 0.08em;
+
+    nav a {
+      color: var(--gold);
+      text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
-      transition: all 0.18s;
-      display: block;
+      font-size: 1em;
+      padding: 10px 16px;
+      border-radius: 30px;
+      border: 1px solid var(--gold);
+      transition: all 0.3s;
     }
-    .minimal-btn:hover {
-      background: #d4af37;
-      color: #18181b;
-      border-color: #fff;
+
+    nav a:hover {
+      background-color: var(--gold);
+      color: var(--black);
     }
-    /* Contact Minimal */
-    .contact-min {
-      max-width: 390px;
-      margin: 32px auto 0 auto;
-      background: rgba(22,18,9,0.65);
-      border: 1.2px solid #d4af37;
-      border-radius: 18px;
-      padding: 29px 18px 24px 18px;
-      box-shadow: 0 4px 26px #d4af3716;
+
+    section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      border-top: 1px solid #333;
+    }
+
+    section h2 {
+      font-size: 2em;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    section p {
+      font-size: 1.1em;
+      line-height: 1.6em;
       text-align: center;
     }
-    .contact-min input, .contact-min textarea {
-      width: 100%;
-      margin-bottom: 13px;
-      border-radius: 8px;
-      border: 1.3px solid #d4af37;
-      background: #17170d;
-      color: #fff;
-      font-size: 1em;
-      padding: 10px 12px;
-      font-family: inherit;
-      outline: none;
-      transition: border 0.16s;
+
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+      color: #777;
+      font-size: 0.9em;
     }
-    .contact-min input:focus, .contact-min textarea:focus {
-      border: 2px solid #fff;
-    }
-    .contact-min button {
-      margin-top: 8px;
-      width: 100%;
-      background: #d4af37;
-      color: #18181b;
-      font-size: 1em;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      padding: 13px 0;
-      cursor: pointer;
-      letter-spacing: 0.06em;
-      transition: background 0.18s, color 0.18s;
-    }
-    .contact-min button:hover {
-      background: #fff;
-      color: #d4af37;
-    }
-    @media (max-width: 480px) {
-      .main-card, .contact-min {max-width: 97vw; padding: 20px 4vw;}
-      .godly-symbol {width: 68px; height: 68px;}
-      .godly-symbol img {width: 57px; height: 57px;}
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      nav {
+        flex-direction: column;
+      }
+      nav a {
+        width: 80%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-<main>
-  <div class="godly-symbol">
-    <!-- Cambia la ruta de la imagen por tu busto dorado -->
-    <img src="busto_apollo.png" alt="Apollo bust">
+
+<header>
+  <div class="bust">
+    <!-- Reemplaza la imagen por tu busto dorado -->
+    <img src="images/busto_apollo.png" alt="Apollo Bust" />
   </div>
   <h1>APOLLO UNIT</h1>
-  <div class="godly-phrase">Where Tech meets the Divine</div>
-  <div class="main-card">
-    <h2>Services</h2>
-    <div class="services-min">
-      <div class="service-min"><i class="fas fa-robot"></i> AI & Automation</div>
-      <div class="service-min"><i class="fas fa-flask"></i> R&D / I+D+I</div>
-      <div class="service-min"><i class="fas fa-globe"></i> Web Development</div>
-      <div class="service-min"><i class="fas fa-shield-alt"></i> Cybersecurity</div>
-      <div class="service-min"><i class="fas fa-network-wired"></i> IT Infrastructure</div>
-      <div class="service-min"><i class="fas fa-headset"></i> Support</div>
-    </div>
-    <div class="aboutus-min">
-      Founded in 2024, Apollo Unit brings together designers, developers and security experts to create unified, secure digital solutions.<br>
-      <span style="color:#d4af37">One team. One vision.</span>
-    </div>
-    <button class="minimal-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
-  </div>
+  <div class="subtitle">Where Tech Meets the Divine</div>
 
-  <form id="contact" class="contact-min" action="https://formspree.io/f/mldnpgdd" method="POST">
-    <h2>Contact</h2>
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#about">About Us</a>
+    <a href="#pantheon">The Pantheon</a>
+    <a href="#projects">Temple of Works</a>
+    <a href="#testimonials">Oracles</a>
+    <a href="#scrolls">The Scrolls</a>
+    <a href="#contact">The Gate</a>
+    <a href="#join">Initiation</a>
+  </nav>
+</header>
+
+<main>
+  <section id="services">
+    <h2>Services</h2>
+    <p>AI, Cybersecurity, Infrastructure, Web Design and Divine Support — crafted for those who dare to lead.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Founded in 2024, Apollo Unit brings together creators, engineers and strategists to forge unified, secure and visionary digital ecosystems.</p>
+  </section>
+
+  <section id="pantheon">
+    <h2>The Pantheon</h2>
+    <p>Meet our gods of code, security and design — mortals elevated by vision. Each with a domain. All aligned with purpose.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Temple of Works</h2>
+    <p>Explore the sacred relics of past and ongoing work — Projects like Codex NIS2, Firewall Vulcan and Project Aether await.</p>
+  </section>
+
+  <section id="testimonials">
+    <h2>Oracles</h2>
+    <p>Echoes from our believers — words of trust from those who’ve walked the path with Apollo Unit.</p>
+  </section>
+
+  <section id="scrolls">
+    <h2>The Scrolls</h2>
+    <p>Insights, revelations, and sacred documentation. Read the divine texts written by our minds.</p>
+  </section>
+
+  <section id="contact">
+    <h2>The Gate</h2>
+    <p>Enter the Temple. Reach out, and let us bring light to your challenges.</p>
+  </section>
+
+  <section id="join">
+    <h2>Initiation</h2>
+    <p>Are you ready to rise? Become one of us. Join the divine force of Apollo Unit.</p>
+  </section>
 </main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+
+<footer>
+  <p>&copy; 2025 Apollo Unit · All rights reserved</p>
+</footer>
+
 </body>
 </html>
