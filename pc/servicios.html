@@ -33,32 +33,34 @@
       align-items: center;
       font-size: 4em;
       color: white;
+      position: relative;
     }
 
-    .slide:nth-child(1) { background: #111; }
+    .slide:nth-child(1) { background: #000; }
     .slide:nth-child(2) { background: #222; }
     .slide:nth-child(3) { background: #333; }
     .slide:nth-child(4) { background: #000; }
-  </style>
-</head>
-<body>
 
-  <div id="scroll-horizontal">
-  <div class="slide" style="position: relative; background: black;">
-  <div style="text-align: center; color: white;">
-    <h1 style="
+    .services-content {
+      text-align: center;
+      z-index: 2;
+    }
+
+    .services-content h1 {
       font-size: 6vw;
       letter-spacing: 1vw;
       font-weight: 900;
       margin: 0;
       color: white;
-    ">SERVICES</h1>
-    <p style="
+    }
+
+    .services-content p {
       font-size: 1.2vw;
       color: #aaa;
       margin-top: 1vw;
-    ">We specialize in:</p>
-    <ul style="
+    }
+
+    .services-content ul {
       list-style: none;
       padding: 0;
       margin: 2vw 0;
@@ -66,15 +68,9 @@
       line-height: 2.2vw;
       color: #ccc;
       font-weight: bold;
-    ">
-      <li>Digital Experience & UX</li>
-      <li>E-commerce platforms</li>
-      <li>Web design & development</li>
-      <li>Cybersecurity by design</li>
-      <li>Network & system automation</li>
-      <li>Custom Code</li>
-    </ul>
-    <div style="
+    }
+
+    .learn-more-button {
       display: inline-block;
       margin-top: 2vw;
       padding: 1vw 2vw;
@@ -82,39 +78,57 @@
       border-radius: 999px;
       font-size: 1.2vw;
       cursor: pointer;
-    ">
-      LEARN MORE
+      transition: background 0.3s;
+    }
+
+    .learn-more-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .decorative-img {
+      position: absolute;
+      left: 5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      max-width: 30vw;
+      opacity: 0.6;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-horizontal">
+    <div class="slide">
+      <img src="72bd0427-c464-451a-9fc1-abeaf08ef3c3.png" alt="circle" class="decorative-img">
+      <div class="services-content">
+        <h1>SERVICES</h1>
+        <p>We specialize in:</p>
+        <ul>
+          <li>Digital Experience & UX</li>
+          <li>E-commerce platforms</li>
+          <li>Web design & development</li>
+          <li>Cybersecurity by design</li>
+          <li>Network & system automation</li>
+          <li>Custom Code</li>
+        </ul>
+        <div class="learn-more-button">LEARN MORE</div>
+      </div>
+    </div>
+
+    <div class="slide">
+      🧠<br>
+      <span style="font-size: 0.4em; letter-spacing: 0.1em;">IA Y AUTOMATIZACIÓN</span>
+    </div>
+    <div class="slide">
+      🔒<br>
+      <span style="font-size: 0.4em; letter-spacing: 0.1em;">CIBERSEGURIDAD Y AUDITORÍA</span>
+    </div>
+    <div class="slide">
+      📡<br>
+      <span style="font-size: 0.4em; letter-spacing: 0.1em;">REDES E INFRAESTRUCTURAS</span>
     </div>
   </div>
-  <!-- Círculo decorativo -->
-  <img src="72bd0427-c464-451a-9fc1-abeaf08ef3c3.png" alt="circle" style="
-    position: absolute;
-    left: 5vw;
-    top: 50%;
-    transform: translateY(-50%);
-    max-width: 30vw;
-    opacity: 0.6;
-  ">
-</div>
-
-  <div class="slide">
-    🔧<br>
-    <span style="font-size: 0.4em; letter-spacing: 0.1em;">SOPORTE TÉCNICO</span>
-  </div>
-  <div class="slide">
-    🧠<br>
-    <span style="font-size: 0.4em; letter-spacing: 0.1em;">IA Y AUTOMATIZACIÓN</span>
-  </div>
-  <div class="slide">
-    🔒<br>
-    <span style="font-size: 0.4em; letter-spacing: 0.1em;">CIBERSEGURIDAD Y AUDITORÍA</span>
-  </div>
-  <div class="slide">
-    📡<br>
-    <span style="font-size: 0.4em; letter-spacing: 0.1em;">REDES E INFRAESTRUCTURAS</span>
-  </div>
-</div>
-
 
   <script>
     const slider = document.getElementById('scroll-horizontal');
@@ -143,7 +157,6 @@
       currentSlide = index;
 
       if (instant) {
-        // Reactivem la transició després d'un petit delay
         setTimeout(() => {
           slider.classList.remove('no-transition');
         }, 50);
