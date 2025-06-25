@@ -274,6 +274,31 @@
   </section>
 
   <!-- FontAwesome CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+   <script>
+    let sectionIds = ['services', 'experience', 'contact'];
+    let currentSectionIndex = 0;
+
+    // Función de desplazamiento controlado
+    window.addEventListener("scroll", function() {
+      let currentSection = document.getElementById(sectionIds[currentSectionIndex]);
+      let nextSection = document.getElementById(sectionIds[currentSectionIndex + 1]);
+
+      // Verificar si el usuario ha llegado al final de la sección actual
+      if (currentSection && window.scrollY + window.innerHeight >= currentSection.offsetHeight) {
+        // Mostrar el botón de la siguiente sección
+        if (nextSection) {
+          document.getElementById('next-' + sectionIds[currentSectionIndex]).style.display = "block";
+        }
+      }
+    });
+
+    // Navegación entre secciones cuando el usuario hace clic en "Next"
+    document.getElementById('next-services').addEventListener('click', function() {
+      document.getElementById('experience').scrollIntoView({ behavior: "smooth" });
+    });
+    document.getElementById('next-experience').addEventListener('click', function() {
+      document.getElementById('contact').scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
