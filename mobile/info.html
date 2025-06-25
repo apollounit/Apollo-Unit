@@ -2,221 +2,270 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apollo Unit</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* Estilo general */
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #000;
-      color: #d4af37;
-      height: 100%;
-      overflow-x: hidden;
-      scroll-behavior: smooth; /* Suaviza el desplazamiento */
+      font-family: 'Georgia', 'Arial', sans-serif;
+      background: #000;
+      color: #fff;
     }
-
-    /* Sección común */
     section {
-      padding: 80px 20px;
-      text-align: center;
-      color: #fff;
+      padding: 48px 7vw 32px 7vw;
       box-sizing: border-box;
-      transition: all 0.3s ease-in-out;
+      min-height: 100vh;
+    }
+    h2, .big-title {
+      color: #fff;
+      font-size: 2.2em;
+      font-weight: 900;
+      margin-bottom: 0.2em;
+      letter-spacing: 0.07em;
+      text-align: left;
+    }
+    .big-title {
+      font-size: 2.8em;
+      letter-spacing: 0.03em;
+    }
+    .subtitle {
+      color: #d4af37;
+      font-size: 1em;
+      font-weight: 500;
+      margin-bottom: 1.3em;
+      letter-spacing: 0.1em;
     }
 
-    h2 {
-      font-size: 3em;
-      margin-bottom: 20px;
+    /* SERVICES */
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .service-card {
+      background: rgba(35, 29, 14, 0.21);
+      border-left: 4px solid #d4af37;
+      border-radius: 0 18px 18px 0;
+      padding: 20px 18px 16px 18px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 18px;
+      box-shadow: 0 2px 18px #111a;
+    }
+    .service-icon {
+      font-size: 2.1em;
+      color: #d4af37;
+      margin-top: 3px;
+      min-width: 1.7em;
+    }
+    .service-text {
+      flex: 1;
+    }
+    .service-text h3 {
+      margin: 0 0 4px 0;
+      font-size: 1.15em;
+      color: #fff;
       font-weight: bold;
-      letter-spacing: 2px;
-      color: #f1c40f;
+      letter-spacing: 0.03em;
     }
-
-    p {
-      font-size: 1.5em;
-      margin-bottom: 40px;
-      color: #f1c40f;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
+    .service-text p {
+      color: #e6e6e6;
       margin: 0;
+      font-size: 1em;
+      line-height: 1.44;
     }
 
-    ul li {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-      padding: 5px 0;
-      transition: transform 0.3s ease;
+    /* ABOUT US */
+    .aboutus-box {
+      background: rgba(24, 21, 16, 0.60);
+      border-radius: 16px;
+      box-shadow: 0 4px 32px #d4af3720;
+      padding: 24px 18px;
+      margin: 32px 0 24px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .aboutus-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 45% 30%, #d4af37 60%, #111 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .aboutus-img img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      opacity: 0.82;
+      filter: brightness(0.93) sepia(0.5) hue-rotate(-25deg) saturate(2.1);
+    }
+    .aboutus-box p {
+      color: #f3e8c9;
+      margin-bottom: 0;
+      font-size: 1.09em;
+      line-height: 1.68;
+      letter-spacing: 0.02em;
     }
 
-    ul li:hover {
-      transform: translateX(10px);
+    /* CONTACT */
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: #191511;
+      border: 1px solid #d4af37;
+      color: #fff;
+      border-radius: 9px;
+      padding: 12px 14px;
+      font-size: 1em;
+      margin-bottom: 17px;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border: 2px solid #fff;
+    }
+    .contact-form button {
+      width: 100%;
+      background: #d4af37;
+      color: #222;
+      border: none;
+      border-radius: 9px;
+      font-size: 1.15em;
+      font-weight: bold;
+      padding: 12px 0;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+      letter-spacing: 0.06em;
+    }
+    .contact-form button:hover {
+      background: #fff;
       color: #d4af37;
     }
 
-    /* Fondo de cada sección */
-    .section-services {
-      background-image: url('background-service.png');
-      background-size: cover;
-      background-position: center;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .section-experience {
-      background-image: url('background-experience.png');
-      background-size: cover;
-      background-position: center;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .section-contact {
-      background-color: #000;
-    }
-
-    /* Estilo de botones */
-    .button-back {
-      background-color: #d4af37;
-      color: #000;
-      padding: 10px 20px;
-      font-size: 1.2em;
+    /* Navegación fluida */
+    .button-next {
+      display: block;
+      margin: 32px auto 0 auto;
+      background: #d4af37;
+      color: #222;
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
+      padding: 14px 34px;
+      font-size: 1.12em;
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      box-shadow: 0 2px 18px #d4af3728;
       cursor: pointer;
-      text-decoration: none;
-      margin-top: 40px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .button-next:hover {
+      background: #fff;
+      color: #d4af37;
     }
 
-    .button-back:hover {
-      background-color: #f1c40f;
+    /* Responsive */
+    @media (min-width: 700px) {
+      section { max-width: 550px; margin: 0 auto; }
+      .aboutus-img { width: 120px; height: 120px; }
+      .aboutus-img img { width: 110px; height: 110px; }
+      .services-list { gap: 28px; }
+      .service-card { padding: 22px 26px 18px 26px; gap: 30px;}
+      h2, .big-title { font-size: 3.3em; }
+      .big-title { font-size: 4em; }
     }
-
-    /* Estilo de formulario */
-    input, textarea {
-      width: 80%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-      font-size: 1em;
-      background-color: #333;
-      color: #fff;
-    }
-
-    button {
-      background-color: #d4af37;
-      color: black;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1em;
-    }
-
-    button:hover {
-      background-color: #f1c40f;
-    }
-
-    /* Ajustes específicos para dispositivos móviles */
-    @media screen and (max-width: 768px) {
-      h2 {
-        font-size: 2.5em;
-      }
-
-      p {
-        font-size: 1.2em;
-      }
-
-      ul li {
-        font-size: 1.2em;
-      }
-
-      .section-services, .section-experience, .section-contact {
-        padding: 50px 20px;
-      }
-    }
-
   </style>
 </head>
 <body>
 
-   <!-- Sección Services -->
-  <section class="section-services" id="services">
-    <h2>Our Services</h2>
-    <p>We provide high-quality solutions in the following areas:</p>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="subtitle">OUR SERVICES</div>
+    <div class="big-title">What We Do</div>
+    <div class="services-list">
 
-    <!-- Contenedor de los servicios -->
-    <div class="services-container">
-      <!-- Servicio AI Integration -->
       <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-robot"></i> <!-- Icono AI -->
+        <div class="service-icon"><i class="fas fa-robot"></i></div>
+        <div class="service-text">
+          <h3>AI & Automation</h3>
+          <p>AI-driven solutions to boost efficiency, automate tasks and enhance business decisions.</p>
         </div>
-        <h3>AI Integration</h3>
-        <p>We develop AI-driven solutions that enhance business efficiency and decision-making processes.</p>
       </div>
-
-      <!-- Servicio Cybersecurity -->
       <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-shield-alt"></i> <!-- Icono Cybersecurity -->
+        <div class="service-icon"><i class="fas fa-flask"></i></div>
+        <div class="service-text">
+          <h3>R&D / I+D+I</h3>
+          <p>Continuous innovation in research and development to keep you ahead of the market.</p>
         </div>
-        <h3>Cybersecurity</h3>
-        <p>Protect your business with cutting-edge cybersecurity measures to ensure safe digital operations.</p>
       </div>
-
-      <!-- Servicio Digital Transformation -->
       <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-sync-alt"></i> <!-- Icono Digital Transformation -->
+        <div class="service-icon"><i class="fas fa-globe"></i></div>
+        <div class="service-text">
+          <h3>Web Design & Development</h3>
+          <p>Design and development of modern, secure and high-performance web platforms.</p>
         </div>
-        <h3>Digital Transformation</h3>
-        <p>Embrace digitalization to optimize your processes and improve customer engagement.</p>
       </div>
-
-      <!-- Servicio Support -->
       <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-headset"></i> <!-- Icono Support -->
+        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="service-text">
+          <h3>Cybersecurity & Compliance</h3>
+          <p>Audits and protection for your digital assets, compliant with the latest regulations.</p>
         </div>
-        <h3>Support</h3>
-        <p>Our dedicated support team ensures your operations run smoothly with real-time assistance.</p>
       </div>
-
-      <!-- Servicio R&D -->
       <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-flask"></i> <!-- Icono R&D -->
+        <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="service-text">
+          <h3>Network & IT Infrastructure</h3>
+          <p>Design, deployment and management of networks and telecom infrastructure.</p>
         </div>
-        <h3>R&D</h3>
-        <p>Invest in research and development to foster innovation and stay ahead in your industry.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-headset"></i></div>
+        <div class="service-text">
+          <h3>Premium Support</h3>
+          <p>Dedicated support for critical systems and user operations, whenever you need it.</p>
+        </div>
       </div>
     </div>
-
-    <a href="#experience" class="button-back" id="next-services">Next: Experience</a>
+    <button class="button-next" onclick="document.getElementById('aboutus').scrollIntoView({behavior:'smooth'})">
+      Next: About Us
+    </button>
   </section>
 
-  <!-- Sección Experience -->
-  <section class="section-experience" id="experience">
-    <h2>Our Experience</h2>
-    <p>With over 10 years of experience, Apollo Unit has been delivering top-tier tech solutions:</p>
-    <ul>
-      <li>Helping businesses optimize their security infrastructure</li>
-      <li>Building reliable telecom networks and systems</li>
-      <li>Integrating AI solutions that drive business growth</li>
-      <li>Designing custom hardware tailored to client needs</li>
-    </ul>
-    <a href="#contact" class="button-back" id="next-experience">Next: Contact</a>
+  <!-- ABOUT US -->
+  <section id="aboutus">
+    <div class="subtitle">ABOUT US</div>
+    <div class="big-title">Apollo Unit</div>
+    <div class="aboutus-box">
+      <div class="aboutus-img">
+        <img src="busto_apollo.png" alt="Apollo bust" />
+      </div>
+      <p>
+        Apollo Unit was founded in 2024 with a clear purpose: to simplify and secure the digital transformation of modern businesses.<br><br>
+        After years of working across disconnected sectors — design, software, networks, cybersecurity — we saw the need for a unified solution that combines all of them in one agile, expert team.<br><br>
+        We’ve eliminated the back-and-forth between designers, developers, and cybersecurity consultants by bringing them all under one roof.
+      </p>
+    </div>
+    <button class="button-next" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      Next: Contact
+    </button>
   </section>
 
-  <!-- Sección Contact -->
-  <section class="section-contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>If you have any questions or want to get in touch, fill out the form below:</p>
-    <form action="https://formspree.io/f/mldnpgdd" method="POST">
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="subtitle">CONTACT</div>
+    <div class="big-title">Let's Work Together</div>
+    <form class="contact-form" action="https://formspree.io/f/mldnpgdd" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
@@ -224,32 +273,7 @@
     </form>
   </section>
 
-  <script>
-    let sectionIds = ['services', 'experience', 'contact'];
-    let currentSectionIndex = 0;
-
-    // Función de desplazamiento controlado
-    window.addEventListener("scroll", function() {
-      let currentSection = document.getElementById(sectionIds[currentSectionIndex]);
-      let nextSection = document.getElementById(sectionIds[currentSectionIndex + 1]);
-
-      // Verificar si el usuario ha llegado al final de la sección actual
-      if (currentSection && window.scrollY + window.innerHeight >= currentSection.offsetHeight) {
-        // Mostrar el botón de la siguiente sección
-        if (nextSection) {
-          document.getElementById('next-' + sectionIds[currentSectionIndex]).style.display = "block";
-        }
-      }
-    });
-
-    // Navegación entre secciones cuando el usuario hace clic en "Next"
-    document.getElementById('next-services').addEventListener('click', function() {
-      document.getElementById('experience').scrollIntoView({ behavior: "smooth" });
-    });
-    document.getElementById('next-experience').addEventListener('click', function() {
-      document.getElementById('contact').scrollIntoView({ behavior: "smooth" });
-    });
-  </script>
-
+  <!-- FontAwesome CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 </body>
 </html>
