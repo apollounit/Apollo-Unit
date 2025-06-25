@@ -145,6 +145,107 @@
       box-shadow: 0 0 20px 0 #d4af37b2;
     }
 
+    .aboutus-slide {
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.aboutus-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 78vw;
+  max-width: 1480px;
+  position: relative;
+  z-index: 2;
+  padding: 3vw 0;
+}
+
+.aboutus-text {
+  max-width: 48vw;
+  color: #fff;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.aboutus-text h1 {
+  font-size: 5vw;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 1vw;
+}
+.aboutus-text p {
+  font-size: 1.32vw;
+  line-height: 1.68;
+  color: #ccc;
+  margin-bottom: 2vw;
+  text-align: left;
+  font-family: Georgia, serif;
+  letter-spacing: 0.01em;
+}
+.aboutus-learn-more {
+  padding: 0.8em 3em;
+  border: 2px solid #d4af37;
+  border-radius: 36px;
+  font-size: 1.22vw;
+  background: transparent;
+  color: #fff;
+  letter-spacing: 0.11em;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  cursor: pointer;
+  box-shadow: 0 0 20px 0 #d4af372c;
+}
+.aboutus-learn-more:hover {
+  background: #d4af37;
+  color: #222;
+  border-color: #fff;
+}
+
+.aboutus-image {
+  max-width: 22vw;
+  margin-left: 2vw;
+  filter: drop-shadow(0 2px 60px #d4af3740);
+}
+.aboutus-image img {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  border-radius: 12px;
+  background: transparent;
+  opacity: 0.97;
+  /* Puedes usar un filtro dorado tipo Canva, si tu imagen es PNG blanco y negro:
+  filter: brightness(1.2) sepia(1) hue-rotate(-35deg) saturate(4) opacity(0.98);
+  */
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .aboutus-content { flex-direction: column; align-items: flex-start; width: 94vw;}
+  .aboutus-image { max-width: 38vw; margin-left: 0; margin-top: 3vw;}
+  .aboutus-text h1 { font-size: 10vw;}
+  .aboutus-text p { font-size: 3vw;}
+  .aboutus-learn-more { font-size: 3vw;}
+}
+@media (max-width: 700px) {
+  .aboutus-slide {height: auto;}
+  .aboutus-content { flex-direction: column; align-items: flex-start; width: 99vw; padding: 7vw 0;}
+  .aboutus-image { max-width: 66vw; margin: 6vw 0 0 0;}
+  .aboutus-text h1 { font-size: 13vw;}
+  .aboutus-text p { font-size: 4.2vw;}
+  .aboutus-learn-more { font-size: 4.5vw; padding: 1em 2.5em;}
+}
+
+
     /* Responsive */
     @media (max-width: 1024px) {
       .decor-circle { left: -38vw; top: 36%; width: 110vw; height: 110vw;}
