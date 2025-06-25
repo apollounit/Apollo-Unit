@@ -31,15 +31,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
       font-size: 4em;
       color: white;
-      position: relative;
     }
 
-    .slide:nth-child(1) { background: #000; }
-    .slide:nth-child(2) { background: #222; }
-    .slide:nth-child(3) { background: #333; }
-    .slide:nth-child(4) { background: #000; }
+    /* Primera slide con fondo e overlay */
+    .services-slide {
+      background-image: url('fondo_service.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.65); /* Oscurecimiento */
+      z-index: 1;
+    }
 
     .services-content {
       text-align: center;
@@ -85,22 +98,19 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
-    .decorative-img {
-      position: absolute;
-      left: 5vw;
-      top: 50%;
-      transform: translateY(-50%);
-      max-width: 30vw;
-      opacity: 0.6;
-      z-index: 1;
-    }
+    /* Resto de slides (colores planos) */
+    .slide:nth-child(2) { background: #222; }
+    .slide:nth-child(3) { background: #333; }
+    .slide:nth-child(4) { background: #000; }
   </style>
 </head>
 <body>
 
   <div id="scroll-horizontal">
-    <div class="slide">
-      <img src="fondo_service.png" alt="circle" class="decorative-img">
+
+    <!-- Slide 1 con fondo e overlay -->
+    <div class="slide services-slide">
+      <div class="overlay"></div>
       <div class="services-content">
         <h1>SERVICES</h1>
         <p>We specialize in:</p>
@@ -116,14 +126,19 @@
       </div>
     </div>
 
+    <!-- Slide 2 -->
     <div class="slide">
       🧠<br>
       <span style="font-size: 0.4em; letter-spacing: 0.1em;">IA Y AUTOMATIZACIÓN</span>
     </div>
+
+    <!-- Slide 3 -->
     <div class="slide">
       🔒<br>
       <span style="font-size: 0.4em; letter-spacing: 0.1em;">CIBERSEGURIDAD Y AUDITORÍA</span>
     </div>
+
+    <!-- Slide 4 -->
     <div class="slide">
       📡<br>
       <span style="font-size: 0.4em; letter-spacing: 0.1em;">REDES E INFRAESTRUCTURAS</span>
