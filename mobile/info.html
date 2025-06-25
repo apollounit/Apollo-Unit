@@ -9,296 +9,208 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Georgia', 'Arial', sans-serif;
-      background: #000;
+      background: #101010;
       color: #fff;
+      font-family: 'Georgia', serif;
+      overflow-x: hidden;
     }
-    section {
-      padding: 48px 7vw 32px 7vw;
-      box-sizing: border-box;
+    main {
+      width: 100%;
       min-height: 100vh;
-    }
-    h2, .big-title {
-      color: #fff;
-      font-size: 2.2em;
-      font-weight: 900;
-      margin-bottom: 0.2em;
-      letter-spacing: 0.07em;
-      text-align: left;
-    }
-    .big-title {
-      font-size: 2.8em;
-      letter-spacing: 0.03em;
-    }
-    .subtitle {
-      color: #d4af37;
-      font-size: 1em;
-      font-weight: 500;
-      margin-bottom: 1.3em;
-      letter-spacing: 0.1em;
-    }
-
-    /* SERVICES */
-    .services-list {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      margin-bottom: 30px;
+      align-items: center;
+      justify-content: flex-start;
     }
-    .service-card {
-      background: rgba(35, 29, 14, 0.21);
-      border-left: 4px solid #d4af37;
-      border-radius: 0 18px 18px 0;
-      padding: 20px 18px 16px 18px;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 18px;
-      box-shadow: 0 2px 18px #111a;
-    }
-    .service-icon {
-      font-size: 2.1em;
-      color: #d4af37;
-      margin-top: 3px;
-      min-width: 1.7em;
-    }
-    .service-text {
-      flex: 1;
-    }
-    .service-text h3 {
-      margin: 0 0 4px 0;
-      font-size: 1.15em;
-      color: #fff;
-      font-weight: bold;
-      letter-spacing: 0.03em;
-    }
-    .service-text p {
-      color: #e6e6e6;
-      margin: 0;
-      font-size: 1em;
-      line-height: 1.44;
-    }
-
-    /* ABOUT US */
-    .aboutus-box {
-      background: rgba(24, 21, 16, 0.60);
-      border-radius: 16px;
-      box-shadow: 0 4px 32px #d4af3720;
-      padding: 24px 18px;
-      margin: 32px 0 24px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .aboutus-img {
-      width: 90px;
-      height: 90px;
+    .godly-symbol {
+      width: 98px;
+      height: 98px;
       border-radius: 50%;
-      background: radial-gradient(circle at 45% 30%, #d4af37 60%, #111 100%);
+      background: radial-gradient(circle at 42% 33%, #d4af37 70%, #18181b 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      margin-bottom: 16px;
+      margin: 40px auto 32px auto;
+      box-shadow: 0 0 80px 0 #d4af372c;
     }
-    .aboutus-img img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      opacity: 0.82;
-      filter: brightness(0.93) sepia(0.5) hue-rotate(-25deg) saturate(2.1);
+    .godly-symbol img {
+      width: 84px; height: 84px; border-radius: 50%; object-fit: cover; opacity: 0.86;
+      filter: brightness(0.93) sepia(0.6) hue-rotate(-23deg) saturate(2.3);
     }
-    .aboutus-box p {
-      color: #f3e8c9;
-      margin-bottom: 0;
-      font-size: 1.09em;
-      line-height: 1.68;
-      letter-spacing: 0.02em;
-    }
-
-    /* CONTACT */
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      background: #191511;
-      border: 1px solid #d4af37;
+    h1 {
+      font-size: 2.9em;
+      letter-spacing: 0.13em;
+      font-family: 'Georgia', serif;
+      font-weight: 900;
       color: #fff;
-      border-radius: 9px;
-      padding: 12px 14px;
-      font-size: 1em;
-      margin-bottom: 17px;
-      outline: none;
-      transition: border 0.2s;
+      margin: 0;
+      text-align: center;
+      text-shadow: 0 4px 24px #000b;
     }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
+    .godly-phrase {
+      color: #d4af37;
+      font-family: 'Georgia', serif;
+      font-size: 1.11em;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      margin: 13px 0 33px 0;
+      text-align: center;
+    }
+    .main-card {
+      background: rgba(22,18,9,0.77);
+      border: 1.7px solid #d4af37;
+      border-radius: 18px;
+      padding: 34px 22px 28px 22px;
+      max-width: 420px;
+      margin: 0 auto 42px auto;
+      box-shadow: 0 6px 36px #d4af3720;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .main-card h2 {
+      font-size: 1.35em;
+      font-family: 'Georgia', serif;
+      letter-spacing: 0.06em;
+      color: #fff;
+      margin: 0 0 22px 0;
+      font-weight: 800;
+      text-align: center;
+    }
+    .services-min {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      width: 100%;
+      margin: 0 0 20px 0;
+    }
+    .service-min {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #fff;
+      font-size: 1.09em;
+      padding: 0;
+      letter-spacing: 0.01em;
+    }
+    .service-min i {
+      color: #d4af37;
+      font-size: 1.5em;
+      min-width: 1.5em;
+    }
+    .aboutus-min {
+      margin-top: 19px;
+      color: #e9e1ca;
+      font-size: 1em;
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+      text-align: center;
+    }
+    .minimal-btn {
+      margin: 28px auto 0 auto;
+      background: none;
+      border: 1.4px solid #d4af37;
+      color: #d4af37;
+      padding: 12px 36px;
+      border-radius: 36px;
+      font-family: inherit;
+      font-size: 1em;
+      letter-spacing: 0.08em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.18s;
+      display: block;
+    }
+    .minimal-btn:hover {
+      background: #d4af37;
+      color: #18181b;
+      border-color: #fff;
+    }
+    /* Contact Minimal */
+    .contact-min {
+      max-width: 390px;
+      margin: 32px auto 0 auto;
+      background: rgba(22,18,9,0.65);
+      border: 1.2px solid #d4af37;
+      border-radius: 18px;
+      padding: 29px 18px 24px 18px;
+      box-shadow: 0 4px 26px #d4af3716;
+      text-align: center;
+    }
+    .contact-min input, .contact-min textarea {
+      width: 100%;
+      margin-bottom: 13px;
+      border-radius: 8px;
+      border: 1.3px solid #d4af37;
+      background: #17170d;
+      color: #fff;
+      font-size: 1em;
+      padding: 10px 12px;
+      font-family: inherit;
+      outline: none;
+      transition: border 0.16s;
+    }
+    .contact-min input:focus, .contact-min textarea:focus {
       border: 2px solid #fff;
     }
-    .contact-form button {
+    .contact-min button {
+      margin-top: 8px;
       width: 100%;
       background: #d4af37;
-      color: #222;
-      border: none;
-      border-radius: 9px;
-      font-size: 1.15em;
+      color: #18181b;
+      font-size: 1em;
       font-weight: bold;
-      padding: 12px 0;
-      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 0;
       cursor: pointer;
-      transition: background 0.18s, color 0.18s;
       letter-spacing: 0.06em;
+      transition: background 0.18s, color 0.18s;
     }
-    .contact-form button:hover {
+    .contact-min button:hover {
       background: #fff;
       color: #d4af37;
     }
-
-    /* Navegación fluida */
-    .button-next {
-      display: block;
-      margin: 32px auto 0 auto;
-      background: #d4af37;
-      color: #222;
-      border: none;
-      border-radius: 30px;
-      padding: 14px 34px;
-      font-size: 1.12em;
-      font-weight: bold;
-      letter-spacing: 0.06em;
-      box-shadow: 0 2px 18px #d4af3728;
-      cursor: pointer;
-      transition: background 0.18s, color 0.18s;
-    }
-    .button-next:hover {
-      background: #fff;
-      color: #d4af37;
-    }
-
-    /* Responsive */
-    @media (min-width: 700px) {
-      section { max-width: 550px; margin: 0 auto; }
-      .aboutus-img { width: 120px; height: 120px; }
-      .aboutus-img img { width: 110px; height: 110px; }
-      .services-list { gap: 28px; }
-      .service-card { padding: 22px 26px 18px 26px; gap: 30px;}
-      h2, .big-title { font-size: 3.3em; }
-      .big-title { font-size: 4em; }
+    @media (max-width: 480px) {
+      .main-card, .contact-min {max-width: 97vw; padding: 20px 4vw;}
+      .godly-symbol {width: 68px; height: 68px;}
+      .godly-symbol img {width: 57px; height: 57px;}
     }
   </style>
 </head>
 <body>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="subtitle">OUR SERVICES</div>
-    <div class="big-title">What We Do</div>
-    <div class="services-list">
-
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-robot"></i></div>
-        <div class="service-text">
-          <h3>AI & Automation</h3>
-          <p>AI-driven solutions to boost efficiency, automate tasks and enhance business decisions.</p>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-flask"></i></div>
-        <div class="service-text">
-          <h3>R&D / I+D+I</h3>
-          <p>Continuous innovation in research and development to keep you ahead of the market.</p>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-globe"></i></div>
-        <div class="service-text">
-          <h3>Web Design & Development</h3>
-          <p>Design and development of modern, secure and high-performance web platforms.</p>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-        <div class="service-text">
-          <h3>Cybersecurity & Compliance</h3>
-          <p>Audits and protection for your digital assets, compliant with the latest regulations.</p>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-network-wired"></i></div>
-        <div class="service-text">
-          <h3>Network & IT Infrastructure</h3>
-          <p>Design, deployment and management of networks and telecom infrastructure.</p>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-headset"></i></div>
-        <div class="service-text">
-          <h3>Premium Support</h3>
-          <p>Dedicated support for critical systems and user operations, whenever you need it.</p>
-        </div>
-      </div>
+<main>
+  <div class="godly-symbol">
+    <!-- Cambia la ruta de la imagen por tu busto dorado -->
+    <img src="busto_apollo.png" alt="Apollo bust">
+  </div>
+  <h1>APOLLO UNIT</h1>
+  <div class="godly-phrase">Where Tech meets the Divine</div>
+  <div class="main-card">
+    <h2>Services</h2>
+    <div class="services-min">
+      <div class="service-min"><i class="fas fa-robot"></i> AI & Automation</div>
+      <div class="service-min"><i class="fas fa-flask"></i> R&D / I+D+I</div>
+      <div class="service-min"><i class="fas fa-globe"></i> Web Development</div>
+      <div class="service-min"><i class="fas fa-shield-alt"></i> Cybersecurity</div>
+      <div class="service-min"><i class="fas fa-network-wired"></i> IT Infrastructure</div>
+      <div class="service-min"><i class="fas fa-headset"></i> Support</div>
     </div>
-    <button class="button-next" onclick="document.getElementById('aboutus').scrollIntoView({behavior:'smooth'})">
-      Next: About Us
-    </button>
-  </section>
-
-  <!-- ABOUT US -->
-  <section id="aboutus">
-    <div class="subtitle">ABOUT US</div>
-    <div class="big-title">Apollo Unit</div>
-    <div class="aboutus-box">
-      <div class="aboutus-img">
-        <img src="busto_apollo.png" alt="Apollo bust" />
-      </div>
-      <p>
-        Apollo Unit was founded in 2024 with a clear purpose: to simplify and secure the digital transformation of modern businesses.<br><br>
-        After years of working across disconnected sectors — design, software, networks, cybersecurity — we saw the need for a unified solution that combines all of them in one agile, expert team.<br><br>
-        We’ve eliminated the back-and-forth between designers, developers, and cybersecurity consultants by bringing them all under one roof.
-      </p>
+    <div class="aboutus-min">
+      Founded in 2024, Apollo Unit brings together designers, developers and security experts to create unified, secure digital solutions.<br>
+      <span style="color:#d4af37">One team. One vision.</span>
     </div>
-    <button class="button-next" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-      Next: Contact
-    </button>
-  </section>
+    <button class="minimal-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
+  </div>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="subtitle">CONTACT</div>
-    <div class="big-title">Let's Work Together</div>
-    <form class="contact-form" action="https://formspree.io/f/mldnpgdd" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <!-- FontAwesome CDN -->
-   <script>
-    let sectionIds = ['services', 'experience', 'contact'];
-    let currentSectionIndex = 0;
-
-    // Función de desplazamiento controlado
-    window.addEventListener("scroll", function() {
-      let currentSection = document.getElementById(sectionIds[currentSectionIndex]);
-      let nextSection = document.getElementById(sectionIds[currentSectionIndex + 1]);
-
-      // Verificar si el usuario ha llegado al final de la sección actual
-      if (currentSection && window.scrollY + window.innerHeight >= currentSection.offsetHeight) {
-        // Mostrar el botón de la siguiente sección
-        if (nextSection) {
-          document.getElementById('next-' + sectionIds[currentSectionIndex]).style.display = "block";
-        }
-      }
-    });
-
-    // Navegación entre secciones cuando el usuario hace clic en "Next"
-    document.getElementById('next-services').addEventListener('click', function() {
-      document.getElementById('experience').scrollIntoView({ behavior: "smooth" });
-    });
-    document.getElementById('next-experience').addEventListener('click', function() {
-      document.getElementById('contact').scrollIntoView({ behavior: "smooth" });
-    });
-  </script>
+  <form id="contact" class="contact-min" action="https://formspree.io/f/mldnpgdd" method="POST">
+    <h2>Contact</h2>
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 </body>
 </html>
